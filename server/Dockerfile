@@ -1,12 +1,13 @@
 FROM rust:latest
 
-WORKDIR /app
-
 RUN cargo install diesel_cli --no-default-features --features postgres
 RUN cargo install cargo-watch --locked
+
+WORKDIR /app/server
 
 EXPOSE 8080
 
 COPY . .
 
+RUN ["cat", "Cargo.toml"]
 CMD [ "cargo", "watch", "--why", "-x", "run", "--ignore", "database_data/", "--poll" ]
