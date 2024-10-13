@@ -6,7 +6,7 @@ services:
       - POSTGRES_PASSWORD=postgres_password
       - POSTGRES_DB=nutrition_tracker
     volumes:
-      - ./database_data:/var/lib/postgresql/data
+      - ~/nutrition_tracker_database_data:/var/lib/postgresql/data
     command: [ "postgres", "-c", "log_statement=all" ]
 
   app:

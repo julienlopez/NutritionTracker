@@ -10,4 +10,4 @@ EXPOSE 8080
 COPY . .
 
 RUN ["cat", "Cargo.toml"]
-CMD [ "cargo", "watch", "--why", "-x", "run", "--ignore", "database_data/", "--poll" ]
+CMD [ "cargo", "watch", "--why", "-x", "run", "--ignore", "migrations/", "--poll" ]
